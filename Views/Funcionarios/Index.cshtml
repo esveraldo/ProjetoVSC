@@ -1,0 +1,36 @@
+@model IEnumerable<ProjetoVSC.Models.Entities.Funcionario>
+
+    <h2>Funcionarios</h2>
+
+    <p>
+        <a asp-action="Cadastrar" class="btn btn-primary">Novo funcionário</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cpf)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Salario)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+             @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Salario)</td>
+                        <td>
+                            <a asp-action="Editar" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                            <a asp-action="Detalhes" asp-route-id="@item.Id" class="btn btn-success">Detalhes</a>
+                            <a asp-action="Deletar" asp-route-id="@item.Id" class="btn btn-danger">Deletar</a>
+                        </td>
+                    </tr>
+                }
+        </tbody>
+    </table>
+
+    
